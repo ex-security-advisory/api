@@ -1,9 +1,10 @@
 defmodule ElixirSecurityAdvisoryApi.Endpoint do
   use Phoenix.Endpoint, otp_app: :elixir_security_advisory_api
+  use Absinthe.Phoenix.Endpoint
 
-  socket "/socket", ElixirSecurityAdvisoryApi.UserSocket,
+  socket "/v1/socket", ElixirSecurityAdvisoryApiV1.UserSocket,
     websocket: true,
-    longpoll: false
+    longpoll: true
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -13,7 +14,13 @@ defmodule ElixirSecurityAdvisoryApi.Endpoint do
     at: "/",
     from: :elixir_security_advisory_api,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(css fonts images js favicon.ico robots.txt v1)
+
+  plug Plug.Static,
+    at: "/v1",
+    from: :elixir_security_advisory_api_v1,
+    gzip: false,
+    only: ~w(css fonts images js swagger.json)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -32,13 +39,7 @@ defmodule ElixirSecurityAdvisoryApi.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
 
-  # The session will be stored in the cookie and signed,
-  # this means its contents can be read but not tampered with.
-  # Set :encryption_salt if you would also like to encrypt it.
-  plug Plug.Session,
-    store: :cookie,
-    key: "_elixir_security_advisory_api_key",
-    signing_salt: "D47UiSiH"
+  plug(CORSPlug, origin: [:self])
 
   plug ElixirSecurityAdvisoryApi.Router
 end

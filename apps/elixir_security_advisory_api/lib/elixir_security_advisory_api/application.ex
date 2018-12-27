@@ -6,12 +6,14 @@ defmodule ElixirSecurityAdvisoryApi.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec
+
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      ElixirSecurityAdvisoryApi.Endpoint
+      ElixirSecurityAdvisoryApi.Endpoint,
       # Starts a worker by calling: ElixirSecurityAdvisoryApi.Worker.start_link(arg)
-      # {ElixirSecurityAdvisoryApi.Worker, arg},
+      supervisor(Absinthe.Subscription, [ElixirSecurityAdvisoryApi.Endpoint])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

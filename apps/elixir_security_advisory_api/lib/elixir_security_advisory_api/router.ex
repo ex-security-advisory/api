@@ -1,11 +1,15 @@
 defmodule ElixirSecurityAdvisoryApi.Router do
   use ElixirSecurityAdvisoryApi, :router
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :browser do
+    plug :accepts, ["html"]
   end
 
-  scope "/api", ElixirSecurityAdvisoryApi do
-    pipe_through :api
+  scope "/", ElixirSecurityAdvisoryApi do
+    pipe_through :browser
+
+    get("/", IndexController, :index)
   end
+
+  forward("/v1", ElixirSecurityAdvisoryApiV1.Router)
 end

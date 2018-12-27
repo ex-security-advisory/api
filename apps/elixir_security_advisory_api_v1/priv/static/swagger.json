@@ -1,0 +1,561 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/vulnerabilities/{id}": {
+      "get": {
+        "tags": [
+          "Vulnerability"
+        ],
+        "summary": "Show vulnerability",
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Vulnerability"
+            },
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "name": "id",
+            "in": "path",
+            "description": "The vulnerability id"
+          }
+        ],
+        "operationId": "ElixirSecurityAdvisoryApiV1.VulnerabilityController.show",
+        "description": ""
+      }
+    },
+    "/vulnerabilities": {
+      "get": {
+        "tags": [
+          "Vulnerability"
+        ],
+        "summary": "List vulnerabilities",
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/VulnerabilityList"
+            },
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "required": false,
+            "name": "after",
+            "in": "query",
+            "description": "List entries after cursor"
+          },
+          {
+            "type": "string",
+            "required": false,
+            "name": "affectsVersion",
+            "in": "query",
+            "description": "Only list vulnerabilities that are affecting the given version"
+          },
+          {
+            "type": "string",
+            "required": false,
+            "name": "packageName",
+            "in": "query",
+            "description": "Only list vulnerabilities from given package name"
+          },
+          {
+            "type": "integer",
+            "required": false,
+            "name": "first",
+            "in": "query",
+            "description": "List the first X entries"
+          },
+          {
+            "type": "integer",
+            "required": false,
+            "name": "last",
+            "in": "query",
+            "description": "List the last X entries"
+          },
+          {
+            "type": "string",
+            "required": false,
+            "name": "before",
+            "in": "query",
+            "description": "List entries before cursor"
+          }
+        ],
+        "operationId": "ElixirSecurityAdvisoryApiV1.VulnerabilityController.index",
+        "description": ""
+      }
+    },
+    "/packages/{id}/vulnerabilities": {
+      "get": {
+        "tags": [
+          "PackageVulnerability"
+        ],
+        "summary": "List vulnerabilities of package",
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/VulnerabilityList"
+            },
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "required": false,
+            "name": "after",
+            "in": "query",
+            "description": "List entries after cursor"
+          },
+          {
+            "type": "string",
+            "required": false,
+            "name": "affectsVersion",
+            "in": "query",
+            "description": "Only list vulnerabilities that are affecting the given version"
+          },
+          {
+            "type": "string",
+            "required": true,
+            "name": "id",
+            "in": "path",
+            "description": "package id"
+          },
+          {
+            "type": "integer",
+            "required": false,
+            "name": "first",
+            "in": "query",
+            "description": "List the first X entries"
+          },
+          {
+            "type": "integer",
+            "required": false,
+            "name": "last",
+            "in": "query",
+            "description": "List the last X entries"
+          },
+          {
+            "type": "string",
+            "required": false,
+            "name": "before",
+            "in": "query",
+            "description": "List entries before cursor"
+          }
+        ],
+        "operationId": "ElixirSecurityAdvisoryApiV1.PackageVulnerabilityController.index",
+        "description": ""
+      }
+    },
+    "/packages/{id}": {
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Show package",
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Package"
+            },
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "name": "id",
+            "in": "path",
+            "description": "The package id"
+          }
+        ],
+        "operationId": "ElixirSecurityAdvisoryApiV1.PackageController.show",
+        "description": ""
+      }
+    },
+    "/packages": {
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "List packages",
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PackageList"
+            },
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "required": false,
+            "name": "after",
+            "in": "query",
+            "description": "List entries after cursor"
+          },
+          {
+            "type": "integer",
+            "required": false,
+            "name": "first",
+            "in": "query",
+            "description": "List the first X entries"
+          },
+          {
+            "type": "integer",
+            "required": false,
+            "name": "last",
+            "in": "query",
+            "description": "List the last X entries"
+          },
+          {
+            "type": "string",
+            "required": false,
+            "name": "before",
+            "in": "query",
+            "description": "List entries before cursor"
+          }
+        ],
+        "operationId": "ElixirSecurityAdvisoryApiV1.PackageController.index",
+        "description": ""
+      }
+    }
+  },
+  "info": {
+    "version": "1.0",
+    "title": "Elixir Security Advisory"
+  },
+  "definitions": {
+    "VulnerabilityRevision": {
+      "type": "object",
+      "required": [
+        "revisionMessage",
+        "oldestRevisionId"
+      ],
+      "properties": {
+        "unaffectedVersions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Unaffected Package Versions"
+        },
+        "title": {
+          "type": "string",
+          "description": "Vulnerability title"
+        },
+        "revisionMessage": {
+          "type": "string",
+          "description": "revision change description"
+        },
+        "patchedVersions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Patched Package Versions"
+        },
+        "oldestRevisionId": {
+          "type": "string",
+          "description": "Revision when revision was defined"
+        },
+        "newestRevisionId": {
+          "type": "string",
+          "description": "Revision when revision was replaced"
+        },
+        "link": {
+          "type": "string",
+          "format": "uri",
+          "description": "Disclosure Date"
+        },
+        "disclosureDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Disclosure Date"
+        },
+        "description": {
+          "type": "string",
+          "description": "Vulnerability description"
+        },
+        "cve": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{4,}$",
+          "description": "CVE ID"
+        }
+      },
+      "example": {
+        "title": "Permissive parameters and privilege escalation",
+        "revisionMessage": "Merge pull request #11 from maennchen/patch-1\n\nAdd Reserved CVE to Coherence",
+        "patchedVersions": [
+          ">= 0.5.2"
+        ],
+        "oldestRevisionId": "83ea7db3536e7c1cd30ce5f430f41ff38a646103",
+        "link": "https://github.com/smpallen99/coherence/issues/270",
+        "disclosureDate": "2017-08-02",
+        "description": "The Coherence library has \"Mass Assignment\"-like vulnerabilities. In particular, \"registration\"\nendpoints (like creating, editing, updating), allow users to update any coherence_fields. This\nmeans that, among other issues, users can automatically confirm their accounts by sending the\nconfirmed_at parameter with their registration request. Further, the library design and\ndocumentation encourages insecure functionality by default.\n\nFor example, the \"store\" demo allows registering users to add themselves as admin:\nhttps://github.com/smpallen99/store/blob/master/web/models/coherence/user.ex",
+        "cve": "2018-20301"
+      }
+    },
+    "VulnerabilityList": {
+      "type": "object",
+      "title": "Vulnerability List",
+      "required": [
+        "pageInfo"
+      ],
+      "properties": {
+        "pageInfo": {
+          "description": "Pagination Info",
+          "$ref": "#/definitions/PageInfo"
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "cursor",
+              "node"
+            ],
+            "properties": {
+              "node": {
+                "description": "Node Object",
+                "$ref": "#/definitions/Vulnerability"
+              },
+              "cursor": {
+                "type": "string",
+                "description": "Cursor"
+              }
+            }
+          },
+          "description": "List of edge nodes"
+        }
+      },
+      "description": "List of vulnerabilities"
+    },
+    "Vulnerability": {
+      "type": "object",
+      "required": [
+        "package",
+        "oldestRevisionId",
+        "id"
+      ],
+      "properties": {
+        "unaffectedVersions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Unaffected Package Versions"
+        },
+        "title": {
+          "type": "string",
+          "description": "Vulnerability title"
+        },
+        "revisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VulnerabilityRevision"
+          },
+          "description": "Unaffected Package Versions"
+        },
+        "patchedVersions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Patched Package Versions"
+        },
+        "package": {
+          "description": "Package where vulnerability was found",
+          "$ref": "#/definitions/Package"
+        },
+        "oldestRevisionId": {
+          "type": "string",
+          "description": "Revision when Vulnerability was defined"
+        },
+        "link": {
+          "type": "string",
+          "format": "uri",
+          "description": "Disclosure Date"
+        },
+        "id": {
+          "type": "string",
+          "description": "Vulnerability ID"
+        },
+        "disclosureDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Disclosure Date"
+        },
+        "description": {
+          "type": "string",
+          "description": "Vulnerability description"
+        },
+        "cve": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{4,}$",
+          "description": "CVE ID"
+        }
+      },
+      "example": {
+        "title": "Permissive parameters and privilege escalation",
+        "revisions": [
+          {
+            "title": "Permissive parameters and privilege escalation",
+            "revisionMessage": "Merge pull request #11 from maennchen/patch-1\n\nAdd Reserved CVE to Coherence",
+            "patchedVersions": [
+              ">= 0.5.2"
+            ],
+            "oldestRevisionId": "83ea7db3536e7c1cd30ce5f430f41ff38a646103",
+            "link": "https://github.com/smpallen99/coherence/issues/270",
+            "disclosureDate": "2017-08-02",
+            "description": "The Coherence library has \"Mass Assignment\"-like vulnerabilities. In particular, \"registration\"\nendpoints (like creating, editing, updating), allow users to update any coherence_fields. This\nmeans that, among other issues, users can automatically confirm their accounts by sending the\nconfirmed_at parameter with their registration request. Further, the library design and\ndocumentation encourages insecure functionality by default.\n\nFor example, the \"store\" demo allows registering users to add themselves as admin:\nhttps://github.com/smpallen99/store/blob/master/web/models/coherence/user.ex",
+            "cve": "2018-20301"
+          }
+        ],
+        "patchedVersions": [
+          ">= 0.5.2"
+        ],
+        "package": {
+          "name": "coherence",
+          "id": "UGFja2FnZTpjb2hlcmVuY2U="
+        },
+        "oldestRevisionId": "4a69ca0aa7367ce6265d95c9f72f95039cc5a86e",
+        "link": "https://github.com/smpallen99/coherence/issues/270",
+        "id": "VnVsbmVyYWJpbGl0eTpwYWNrYWdlcy9jb2hlcmVuY2UvMjAxNy0wOC0wMi55bWw=",
+        "disclosureDate": "2017-08-02",
+        "description": "The Coherence library has \"Mass Assignment\"-like vulnerabilities. In particular, \"registration\"\nendpoints (like creating, editing, updating), allow users to update any coherence_fields. This\nmeans that, among other issues, users can automatically confirm their accounts by sending the\nconfirmed_at parameter with their registration request. Further, the library design and\ndocumentation encourages insecure functionality by default.\n\nFor example, the \"store\" demo allows registering users to add themselves as admin:\nhttps://github.com/smpallen99/store/blob/master/web/models/coherence/user.ex",
+        "cve": "2018-20301"
+      }
+    },
+    "PageInfo": {
+      "type": "object",
+      "required": [
+        "startCursor",
+        "hasPreviousPage",
+        "hasNextPag",
+        "endCursor"
+      ],
+      "properties": {
+        "startCursor": {
+          "type": "string",
+          "description": "List start Cursor"
+        },
+        "hasPreviousPage": {
+          "type": "boolean",
+          "description": "List has previous page"
+        },
+        "hasNextPag": {
+          "type": "boolean",
+          "description": "List has next page"
+        },
+        "endCursor": {
+          "type": "string",
+          "description": "List End Cursor"
+        }
+      },
+      "example": {
+        "startCursor": "YXJyYXljb25uZWN0aW9uOjA=",
+        "hasPreviousPage": false,
+        "hasNextPage": false,
+        "endCursor": "YXJyYXljb25uZWN0aW9uOjg="
+      }
+    },
+    "PackageList": {
+      "type": "object",
+      "title": "Package List",
+      "required": [
+        "pageInfo"
+      ],
+      "properties": {
+        "pageInfo": {
+          "description": "Pagination Info",
+          "$ref": "#/definitions/PageInfo"
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "cursor",
+              "node"
+            ],
+            "properties": {
+              "node": {
+                "description": "Node Object",
+                "$ref": "#/definitions/Package"
+              },
+              "cursor": {
+                "type": "string",
+                "description": "Cursor"
+              }
+            }
+          },
+          "description": "List of edge nodes"
+        }
+      },
+      "description": "List of packages"
+    },
+    "Package": {
+      "type": "object",
+      "required": [
+        "name",
+        "id"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Package Name"
+        },
+        "id": {
+          "type": "string",
+          "description": "Package ID"
+        }
+      },
+      "example": {
+        "name": "coherence",
+        "id": "UGFja2FnZTpjb2hlcmVuY2U="
+      }
+    }
+  },
+  "basePath": "/v1"
+}

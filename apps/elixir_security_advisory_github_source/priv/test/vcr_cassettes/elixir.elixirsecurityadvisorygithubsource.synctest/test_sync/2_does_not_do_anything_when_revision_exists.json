@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/dependabot/elixir-security-advisories/git/refs/heads/master"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"ref\":\"refs/heads/master\",\"node_id\":\"MDM6UmVmMTI3OTQzMjUzOm1hc3Rlcg==\",\"url\":\"https://api.github.com/repos/dependabot/elixir-security-advisories/git/refs/heads/master\",\"object\":{\"sha\":\"c2627c0e2e4ac78ab1fb7d4284b242ecb18b1f3c\",\"type\":\"commit\",\"url\":\"https://api.github.com/repos/dependabot/elixir-security-advisories/git/commits/c2627c0e2e4ac78ab1fb7d4284b242ecb18b1f3c\"}}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 27 Dec 2018 23:16:11 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "373",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4717",
+        "X-RateLimit-Reset": "1545954584",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"cd9aec1cbb976eef6e806413b545acd5\"",
+        "Last-Modified": "Fri, 21 Dec 2018 07:54:57 GMT",
+        "X-Poll-Interval": "300",
+        "X-OAuth-Scopes": "",
+        "X-Accepted-OAuth-Scopes": "repo",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-GitHub-Request-Id": "C805:3027:9CF4A63:138DD767:5C255D3B"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
