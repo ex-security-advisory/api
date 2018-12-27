@@ -1,0 +1,2 @@
+apps/elixir_security_advisory_github_source/priv/test/snapshot/**/*.erts binary
+apps/elixir_security_advisory_github_source/priv/test/vcr_cassettes/**/*.json binary

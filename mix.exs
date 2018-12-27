@@ -5,7 +5,8 @@ defmodule ElixirSecurityAdvisory.Umbrella.MixProject do
     [
       apps_path: "apps",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      dialyzer: [ignore_warnings: ".dialyzer_ignore.exs"]
     ]
   end
 
@@ -22,6 +23,9 @@ defmodule ElixirSecurityAdvisory.Umbrella.MixProject do
   # Dependencies listed here are available only for this project
   # and cannot be accessed from applications inside the apps folder
   defp deps do
-    []
+    [
+      {:dialyxir, "~> 1.0-rc", runtime: false},
+      {:credo, "~> 1.0", runtime: false}
+    ]
   end
 end

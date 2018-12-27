@@ -1,3 +1,3 @@
-# ElixirSecurityAdvisory
+# ElixirSecurityAdvisory Core
 
-**TODO: Add description**
+Holds models and the database.

@@ -1,0 +1,55 @@
+<h1>Elixir Security Vulnerability API V1</h1>
+
+The API is accessible either via GraphQL or as a rest API. The GraphQL API is recommended for use.
+
+<h2>GraphQL</h2>
+
+<dl>
+  <dt>GraphQL Playground</dt>
+  <dd>
+    <a href="<%= Routes.url(@conn) %>/v1/graphiql">
+      <%= Routes.url(@conn) %>/v1/graphiql
+    </a>
+  </dd>
+  <dt>GraphQL Root</dt>
+  <dd>
+    <a href="<%= Routes.url(@conn) %>/v1/graphql">
+      <%= Routes.url(@conn) %>/v1/graphql
+    </a>
+  </dd>
+  <dt>GraphQL Socket Root</dt>
+  <dd>
+    <a href="<%= Routes.url(@conn) %>/v1/socket">
+      <%= Routes.url(@conn) %>/v1/socket
+    </a><br />
+    <em>
+      Usage via
+      <a href="https://github.com/absinthe-graphql/absinthe-socket">
+        Absinthe Socket
+      </a>
+    </em>
+  </dd>
+</dl>
+
+<h2>REST</h2>
+
+<dl>
+  <dt>Swagger JSON</dt>
+  <dd>
+    <a href="<%= Routes.url(@conn) %>/v1/swagger.json">
+      <%= Routes.url(@conn) %>/v1/swagger.json
+    </a>
+  </dd>
+  <dt>Swagger UI</dt>
+  <dd>
+    <a href="<%= Routes.url(@conn) %>/v1/swagger">
+      <%= Routes.url(@conn) %>/v1/swagger
+    </a>
+  </dd>
+  <dt>API Root</dt>
+  <dd>
+    <a href="<%= Routes.url(@conn) %>/v1/">
+      <%= Routes.url(@conn) %>/v1/
+    </a>
+  </dd>
+</dl>

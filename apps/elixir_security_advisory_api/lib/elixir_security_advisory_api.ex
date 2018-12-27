@@ -20,18 +20,31 @@ defmodule ElixirSecurityAdvisoryApi do
   def controller do
     quote do
       use Phoenix.Controller, namespace: ElixirSecurityAdvisoryApi
+      use ElixirSecurityAdvisoryApi, :controller_base
+    end
+  end
+
+  def controller_base do
+    quote do
       import Plug.Conn
       import ElixirSecurityAdvisoryApi.Gettext
+
       alias ElixirSecurityAdvisoryApi.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
+      use ElixirSecurityAdvisoryApi, :view_base
+
       use Phoenix.View,
         root: "lib/elixir_security_advisory_api/templates",
         namespace: ElixirSecurityAdvisoryApi
+    end
+  end
 
+  def view_base do
+    quote do
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
@@ -43,6 +56,12 @@ defmodule ElixirSecurityAdvisoryApi do
 
   def router do
     quote do
+      use ElixirSecurityAdvisoryApi, :router_base
+    end
+  end
+
+  def router_base do
+    quote do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
@@ -50,6 +69,12 @@ defmodule ElixirSecurityAdvisoryApi do
   end
 
   def channel do
+    quote do
+      use ElixirSecurityAdvisoryApi, :channel_base
+    end
+  end
+
+  def channel_base do
     quote do
       use Phoenix.Channel
       import ElixirSecurityAdvisoryApi.Gettext

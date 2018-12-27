@@ -1,4 +1,6 @@
 defmodule ElixirSecurityAdvisoryApi.MixProject do
+  @moduledoc false
+
   use Mix.Project
 
   def project do
@@ -9,7 +11,7 @@ defmodule ElixirSecurityAdvisoryApi.MixProject do
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
-      elixir: "~> 1.5",
+      elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -40,9 +42,12 @@ defmodule ElixirSecurityAdvisoryApi.MixProject do
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
       {:gettext, "~> 0.11"},
+      {:cors_plug, "~> 2.0"},
       {:elixir_security_advisory, in_umbrella: true},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:absinthe_phoenix, "~> 1.4"},
+      {:absinthe, "~> 1.4"}
     ]
   end
 
