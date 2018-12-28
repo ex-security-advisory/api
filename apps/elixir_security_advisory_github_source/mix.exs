@@ -14,7 +14,14 @@ defmodule ElixirSecurityAdvisoryGithubSource.MixProject do
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env()),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -36,7 +43,8 @@ defmodule ElixirSecurityAdvisoryGithubSource.MixProject do
       {:github, "~> 0.10"},
       {:yamerl, "~> 0.7.0"},
       {:exvcr, "~> 0.10", only: :test},
-      {:mox, "~> 0.4", only: :test}
+      {:mox, "~> 0.4", only: :test},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 end

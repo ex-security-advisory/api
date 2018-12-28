@@ -1,4 +1,6 @@
 defmodule ElixirSecurityAdvisory.Umbrella.MixProject do
+  @moduledoc false
+
   use Mix.Project
 
   def project do
@@ -6,7 +8,14 @@ defmodule ElixirSecurityAdvisory.Umbrella.MixProject do
       apps_path: "apps",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      dialyzer: [ignore_warnings: ".dialyzer_ignore.exs"]
+      dialyzer: [ignore_warnings: ".dialyzer_ignore.exs"],
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -25,7 +34,8 @@ defmodule ElixirSecurityAdvisory.Umbrella.MixProject do
   defp deps do
     [
       {:dialyxir, "~> 1.0-rc", runtime: false},
-      {:credo, "~> 1.0", runtime: false}
+      {:credo, "~> 1.0", runtime: false},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 end
