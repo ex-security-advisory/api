@@ -10,6 +10,8 @@ cache:
   directories:
     - ~/.mix
     - ~/.hex
+    - _build/*/*.plt
+    - _build/*/*.plt.hash
 jobs:
   include:
     - stage: test
