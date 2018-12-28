@@ -1,11 +1,13 @@
 # ElixirSecurityAdvisory API
 
+[![Build Status](https://travis-ci.com/ex-security-advisory/api.svg?branch=master)](https://travis-ci.com/ex-security-advisory/api)
+[![Coverage Status](https://coveralls.io/repos/github/ex-security-advisory/api/badge.svg?branch=master)](https://coveralls.io/github/ex-security-advisory/api?branch=master)
+
 This repository is not yet ready for production, check back later.
 
 ## TODO
 
 * Find Out why the GitHub client is having errors after a few minutes
-* SetUp CI
 * Search for Hosting Solution supporting mnesia (Gigalixir?)
 * Setup Hosting
 * Test Subscriptions
