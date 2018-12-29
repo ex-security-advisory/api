@@ -11,7 +11,7 @@ defmodule ElixirSecurityAdvisory.MixProject do
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -45,7 +45,8 @@ defmodule ElixirSecurityAdvisory.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:amnesia, "~> 0.2"},
+      {:amnesia, github: "meh/amnesia"},
+      {:exquisite, github: "meh/exquisite", override: true},
       {:phoenix_pubsub, "~> 1.1"},
       {:excoveralls, "~> 0.10", only: :test}
     ]

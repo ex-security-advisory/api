@@ -6,7 +6,7 @@ env:
     - secure: "D5aWniXr6enE1GnbPSFxQ9hGJOZIY8Ln+ufhWq5ju2ou+KDAcOFYLITNCTBqH96FuYhPQojxisJ6E4zKcqpQDnnvO1mIGPFDbGHueBcMIMz4ln89ZX71nSXu/sVgRHl0F2HuNaLYiO4BICnjQTQ1SpI0vmCwfcrx5/oHa87T2WilIhHRYZh6waHzaQOfp0+pOlbRqjBTqKdu5y3a114Nr2ovlfq0JAXuQ4aUgv93npojC/fiIbeESZl5MtRC+wz6yA60tGrQy5dZElNRkftzvdSTHgnM7FjSP7vMBdoviHYwfge0NEstQ7SrOOuV6UKK430crzMuyEG5fMaO035QOHe+SdfzlWdex0blLfhbL0p2CBwr9GDa5Sxw9mNqOwJ23CBZ5Fvm0yQEtjLmQmIkZ4Z7o+/QvwQL2u9zUPoWaVvzwdQFE+tf4xvVYsbpfPQyoN8oFGzXFua3QiUxR10dG1D3D+Qw+f6vIGsKg4/rcpO2h8FlOrYiEapYNDbbZHF3U0NUGObrsKJDwaxGnvL+aaGXZfV/uxa4vKV8g4dBcRJm+mXBk6Oo0WPRIpEaWrv5XpU2M00fLEGBvnBZkgG1pgvs6Y+ozZ7TXOX9iCUt0aZSaO/LLoI+N56LK+2Li1LgM/YxtssfqDEVbMJ7f/kEmM31eY/UJh9NVBJuHJACK/s="
     - secure: "Bs9e2Yl6gCZmyPWKYloV6vEamavrIMM5lHrLq7/cefLGlCQ606gn9YaqtW9UShmfinqFtPEBsZJp0BJMSYXdfDw2hspRqQ84XeGny4T0MTXf/eDB+sXaIcZUSsyiElBr4gxhmqGFH3luypvFdK1RFrzj485ls6Jn5fHle559GjC6iQmlfbfYWCMMJ3bp1RPjy6OQJyeFW5jZTguAJkmCiV5hc/6IQQjPqIi82w5NA2NwSkZpN+t5Zw9/367gJbtoTKOet/OfSSRtudNEYz4E6L5xIjDncgigKPkEr1YA0wHZ1fInGEI5Is9PZlEGnbTsSQTvHUy2E0rfsEpiqZVSmWv1ZzJlJYvZn7K+tEDiSld2CuVUvjJzScZNkiv/uabjBTC4EGZWARv5HJlkiBkVEOurCtHw0Ge3oKo4oYUFGJWEW6YkmFoVrudZ4MZ9tZrt8mI6la09LQiqPpyJZOEwopPb2EYpNT/ubL0s7O0aSkYHnhp4nDJlVnJggoTOx2HQHhJpLMfNxBP0cXD03vztJzXiXwB3Xi5ry5SVIx6j8UshlP/rzOkme7xrgcVyzzyaRzcmsJgbzdgdH4wig06+LKra1vSKIi5PLUteDz4d/Kuwi2SWSAbAR+fuzDQrU7m+R+Y+fGpeUGtUhtHn+5UuznVWmQdez0hDE2WcB62D3WE="
 elixir:
-  - 1.6
+  - 1.7
 otp_release:
   - 21.0
 cache:
@@ -21,23 +21,23 @@ jobs:
       env:
         - MIX_ENV=test
       script: mix coveralls.travis -u
-      elixir: 1.6
+      elixir: 1.7
     - stage: format
       env:
         - MIX_ENV=dev
       script: mix format --check-formatted
-      elixir: 1.6
+      elixir: 1.7
     - stage: credo
       env:
         - MIX_ENV=dev
       script: mix credo --strict
-      elixir: 1.6
+      elixir: 1.7
     - stage: dialyzer
       env:
         - MIX_ENV=dev
       before_script: travis_wait mix dialyzer --plt
       script: mix dialyzer --halt-exit-status
-      elixir: 1.6
+      elixir: 1.7
 deploy:
   provider: script
   script: bash -c "git remote add gigalixir https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME.git && git push -f gigalixir HEAD:refs/heads/master"
