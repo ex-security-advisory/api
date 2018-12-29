@@ -35,7 +35,8 @@ defmodule ElixirSecurityAdvisory.Umbrella.MixProject do
     [
       {:dialyxir, "~> 1.0-rc", runtime: false},
       {:credo, "~> 1.0", runtime: false},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:distillery, "~> 2.0", runtime: false}
     ]
   end
 end

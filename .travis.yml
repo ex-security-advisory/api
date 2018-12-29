@@ -1,7 +1,10 @@
 language: elixir
 sudo: false
 env:
-  - MIX_ENV=test
+  global:
+    - secure: "ZgVEDJUmC94bp6oClg7hLPzszgEkRAL1PX5H9pt4EPO2XudhrS7tzyaKEmXiw+lyDtEBk9t25BTLIeltyBAqrDwcmZ17oBSB90y8XoSswUmxqr48kq5dErfP0N4/PKXWEvJl8b4w8/swtaHpkGl0urpYkv4ICp7cU1weSkwW0UvYIxpndc3u+uC07VBKT43GHcnv4UKzyKZJfVFxmlhf3nTafX6sWflUaKhJVZEdL/elZ9rMteOtw5keudTBam5ruzRVmSjRkEFzrXpgJaAofgHQQas0OTvb86FVl+ajcEYs0ecQXGc9iQjyqVl0nDkfjDOaTguwuMmbw4Jha7fK58q5HYeQc9gDEYgxXRD0lpFMJI4GdpGQe1ktTZO8PiKh8Ra6Rn9jP16SQ4VukBKfpd1H8/DydKXlV6G7dYXA0UCiwGoN3iJrz58Wey1O96rpv7+XCRt44RjAdIA7Uqlk79QXb4UVIkcyxqZLUV6PmxC/rUX2L3KQfp8dSFPlBFwan3K1P2RXHoxFXg4bQNVx+6LnvB3sOtN7Ao2/9zlLUZKnexcC2HFBVtldAuVaKng1L2OmsnjT+niDZbz6kkVv6CoTacIPdUsF9C6Hw5eJQXKeYFjSfG63egOHWvkpMYKYqLsAtF6z6eTHQ2QKwW1R+C2I7p7D+1VUxBqJWEugoRg="
+    - secure: "D5aWniXr6enE1GnbPSFxQ9hGJOZIY8Ln+ufhWq5ju2ou+KDAcOFYLITNCTBqH96FuYhPQojxisJ6E4zKcqpQDnnvO1mIGPFDbGHueBcMIMz4ln89ZX71nSXu/sVgRHl0F2HuNaLYiO4BICnjQTQ1SpI0vmCwfcrx5/oHa87T2WilIhHRYZh6waHzaQOfp0+pOlbRqjBTqKdu5y3a114Nr2ovlfq0JAXuQ4aUgv93npojC/fiIbeESZl5MtRC+wz6yA60tGrQy5dZElNRkftzvdSTHgnM7FjSP7vMBdoviHYwfge0NEstQ7SrOOuV6UKK430crzMuyEG5fMaO035QOHe+SdfzlWdex0blLfhbL0p2CBwr9GDa5Sxw9mNqOwJ23CBZ5Fvm0yQEtjLmQmIkZ4Z7o+/QvwQL2u9zUPoWaVvzwdQFE+tf4xvVYsbpfPQyoN8oFGzXFua3QiUxR10dG1D3D+Qw+f6vIGsKg4/rcpO2h8FlOrYiEapYNDbbZHF3U0NUGObrsKJDwaxGnvL+aaGXZfV/uxa4vKV8g4dBcRJm+mXBk6Oo0WPRIpEaWrv5XpU2M00fLEGBvnBZkgG1pgvs6Y+ozZ7TXOX9iCUt0aZSaO/LLoI+N56LK+2Li1LgM/YxtssfqDEVbMJ7f/kEmM31eY/UJh9NVBJuHJACK/s="
+    - secure: "Bs9e2Yl6gCZmyPWKYloV6vEamavrIMM5lHrLq7/cefLGlCQ606gn9YaqtW9UShmfinqFtPEBsZJp0BJMSYXdfDw2hspRqQ84XeGny4T0MTXf/eDB+sXaIcZUSsyiElBr4gxhmqGFH3luypvFdK1RFrzj485ls6Jn5fHle559GjC6iQmlfbfYWCMMJ3bp1RPjy6OQJyeFW5jZTguAJkmCiV5hc/6IQQjPqIi82w5NA2NwSkZpN+t5Zw9/367gJbtoTKOet/OfSSRtudNEYz4E6L5xIjDncgigKPkEr1YA0wHZ1fInGEI5Is9PZlEGnbTsSQTvHUy2E0rfsEpiqZVSmWv1ZzJlJYvZn7K+tEDiSld2CuVUvjJzScZNkiv/uabjBTC4EGZWARv5HJlkiBkVEOurCtHw0Ge3oKo4oYUFGJWEW6YkmFoVrudZ4MZ9tZrt8mI6la09LQiqPpyJZOEwopPb2EYpNT/ubL0s7O0aSkYHnhp4nDJlVnJggoTOx2HQHhJpLMfNxBP0cXD03vztJzXiXwB3Xi5ry5SVIx6j8UshlP/rzOkme7xrgcVyzzyaRzcmsJgbzdgdH4wig06+LKra1vSKIi5PLUteDz4d/Kuwi2SWSAbAR+fuzDQrU7m+R+Y+fGpeUGtUhtHn+5UuznVWmQdez0hDE2WcB62D3WE="
 elixir:
   - 1.6
 otp_release:
@@ -15,6 +18,8 @@ cache:
 jobs:
   include:
     - stage: test
+      env:
+        - MIX_ENV=test
       script: mix coveralls.travis -u
       elixir: 1.6
     - stage: format
@@ -33,3 +38,8 @@ jobs:
       before_script: travis_wait mix dialyzer --plt
       script: mix dialyzer --halt-exit-status
       elixir: 1.6
+deploy:
+  provider: script
+  script: bash -c "git remote add gigalixir https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME.git && git push -f gigalixir HEAD:refs/heads/master"
+  on:
+    branch: master

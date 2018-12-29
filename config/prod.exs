@@ -11,8 +11,13 @@ use Mix.Config
 # before starting your production server.
 config :elixir_security_advisory_api, ElixirSecurityAdvisoryApi.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [
+    host: System.get_env("HOST"),
+    port: System.get_env("EXTERNAL_PORT"),
+    scheme: System.get_env("SCHEME")
+  ],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # ## SSL Support
 #

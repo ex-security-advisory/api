@@ -41,6 +41,21 @@ config :elixir_security_advisory_api_v1, :phoenix_swagger,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Clustering for Gigalixir
+if System.get_env("LIBCLUSTER_KUBERNETES_SELECTOR") ||
+     System.get_env("LIBCLUSTER_KUBERNETES_NODE_BASENAME") do
+  config :libcluster,
+    topologies: [
+      k8s_example: [
+        strategy: Cluster.Strategy.Kubernetes,
+        config: [
+          kubernetes_selector: System.get_env("LIBCLUSTER_KUBERNETES_SELECTOR"),
+          kubernetes_node_basename: System.get_env("LIBCLUSTER_KUBERNETES_NODE_BASENAME")
+        ]
+      ]
+    ]
+end
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
