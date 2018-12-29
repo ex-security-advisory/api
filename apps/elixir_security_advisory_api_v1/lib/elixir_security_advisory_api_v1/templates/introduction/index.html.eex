@@ -1,6 +1,8 @@
 <h1>Elixir Security Vulnerability API V1</h1>
 
-The API is accessible either via GraphQL or as a rest API. The GraphQL API is recommended for use.
+<p>The API is accessible either via GraphQL or as a rest API. The GraphQL API is recommended for use.<p>
+
+<p><strong>This API is not yet stable, use with care!</strong></p>
 
 <h2>GraphQL</h2>
 
@@ -28,6 +30,13 @@ The API is accessible either via GraphQL or as a rest API. The GraphQL API is re
         Absinthe Socket
       </a>
     </em>
+  </dd>
+  <dt>Supported Accept Types</dt>
+  <dd>
+    <ul>
+      <li>application/json – JSON Response</li>
+      <li>application/ets – Erlang Terms – Decode with :erlang.binary_to_term/2</li>
+    </ul>
   </dd>
 </dl>
 

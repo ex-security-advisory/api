@@ -56,7 +56,8 @@ defmodule ElixirSecurityAdvisoryApiV1.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_swagger, "~> 0.8"},
       {:mox, "~> 0.4", only: :test},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:accept, "~> 0.3"}
     ]
   end
 end

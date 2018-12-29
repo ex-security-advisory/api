@@ -32,11 +32,26 @@ defmodule ElixirSecurityAdvisoryApiV1.Router do
 
   forward(
     "/graphql",
-    Absinthe.Plug,
-    schema: ElixirSecurityAdvisoryApiV1.Schema,
-    socket: ElixirSecurityAdvisoryApiV1.UserSocket,
-    pipeline: {ApolloTracing.Pipeline, :plug},
-    init_opts: [json_codec: Jason]
+    ElixirSecurityAdvisoryApiV1.Plug.Accept,
+    accept: %{
+      "application/json" =>
+        {Absinthe.Plug,
+         [
+           schema: ElixirSecurityAdvisoryApiV1.Schema,
+           socket: ElixirSecurityAdvisoryApiV1.UserSocket,
+           pipeline: {ApolloTracing.Pipeline, :plug},
+           init_opts: [json_codec: Jason]
+         ]},
+      "application/ets" =>
+        {Absinthe.Plug,
+         [
+           schema: ElixirSecurityAdvisoryApiV1.Schema,
+           socket: ElixirSecurityAdvisoryApiV1.UserSocket,
+           pipeline: {ApolloTracing.Pipeline, :plug},
+           serializer: ElixirSecurityAdvisoryApiV1.Serializer.ETS,
+           init_opts: [serializer: ElixirSecurityAdvisoryApiV1.Serializer.ETS]
+         ]}
+    }
   )
 
   def swagger_info do
