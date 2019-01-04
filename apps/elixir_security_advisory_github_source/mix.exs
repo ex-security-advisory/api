@@ -44,7 +44,8 @@ defmodule ElixirSecurityAdvisoryGithubSource.MixProject do
       {:yamerl, "~> 0.7.0"},
       {:exvcr, "~> 0.10", only: :test},
       {:mox, "~> 0.4", only: :test},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:uuid, "~> 1.1"}
     ]
   end
 end
