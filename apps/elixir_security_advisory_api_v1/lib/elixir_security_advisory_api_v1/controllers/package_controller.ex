@@ -1,6 +1,10 @@
 defmodule ElixirSecurityAdvisoryApiV1.PackageController do
   use ElixirSecurityAdvisoryApiV1, :controller
 
+  plug :default_pagination, %{"first" => 10} when action in [:index]
+
+  use Absinthe.Phoenix.Controller, schema: ElixirSecurityAdvisoryApiV1.Schema
+
   swagger_path :index do
     summary("List packages")
     produces("application/json")
