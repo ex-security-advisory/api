@@ -55,7 +55,9 @@ defmodule ElixirSecurityAdvisoryApi.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:absinthe_phoenix, "~> 1.4"},
       {:absinthe, "~> 1.4"},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:plug_dynamic, "~> 1.0"},
+      {:plug_canonical_host, "~> 0.3"}
     ]
   end
 

@@ -2,6 +2,24 @@ defmodule ElixirSecurityAdvisoryApi.Endpoint do
   use Phoenix.Endpoint, otp_app: :elixir_security_advisory_api
   use Absinthe.Phoenix.Endpoint
 
+  require PlugDynamic.Builder
+
+  case Mix.env() do
+    :test ->
+      nil
+
+    _ ->
+      PlugDynamic.Builder.dynamic_plug PlugCanonicalHost do
+        [
+          canonical_host:
+            :elixir_security_advisory_api
+            |> Application.fetch_env!(__MODULE__)
+            |> Keyword.fetch!(:url)
+            |> Keyword.fetch!(:host)
+        ]
+      end
+  end
+
   socket "/v1/socket", ElixirSecurityAdvisoryApiV1.UserSocket,
     websocket: true,
     longpoll: true
