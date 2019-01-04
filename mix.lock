@@ -31,6 +31,7 @@
   "jason": {:hex, :jason, "1.1.2", "b03dedea67a99223a2eaf9f1264ce37154564de899fd3d8b9a21b1a6fd64afe7", [:mix], [{:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm"},
   "joken": {:hex, :joken, "1.5.0", "42a0953e80bd933fc98a0874e156771f78bf0e92abe6c3a9c22feb6da28efb0b", [:mix], [{:jose, "~> 1.8", [hex: :jose, repo: "hexpm", optional: false]}, {:plug, "~> 1.0", [hex: :plug, repo: "hexpm", optional: true]}, {:poison, "~> 1.5 or ~> 2.0 or ~> 3.0", [hex: :poison, repo: "hexpm", optional: true]}], "hexpm"},
   "jose": {:hex, :jose, "1.8.4", "7946d1e5c03a76ac9ef42a6e6a20001d35987afd68c2107bcd8f01a84e75aa73", [:mix, :rebar3], [{:base64url, "~> 0.0.1", [hex: :base64url, repo: "hexpm", optional: false]}], "hexpm"},
+  "jsonapi": {:hex, :jsonapi, "0.8.0", "9c1c4f6c3076ccde2980e2e461fd3def33a9921b0bdbfc4961a76ea2b01fd2d8", [:mix], [{:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: true]}, {:plug, "~> 1.0", [hex: :plug, repo: "hexpm", optional: false]}], "hexpm"},
   "jsx": {:hex, :jsx, "2.8.3", "a05252d381885240744d955fbe3cf810504eb2567164824e19303ea59eef62cf", [:mix, :rebar3], [], "hexpm"},
   "libcluster": {:hex, :libcluster, "3.0.3", "492e98c7f5c9a6e95b8d51f0b198cf8eab60af3b490f40b958d4bc326d11e40e", [:mix], [{:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: false]}], "hexpm"},
   "meck": {:hex, :meck, "0.8.12", "1f7b1a9f5d12c511848fec26bbefd09a21e1432eadb8982d9a8aceb9891a3cf2", [:rebar3], [], "hexpm"},

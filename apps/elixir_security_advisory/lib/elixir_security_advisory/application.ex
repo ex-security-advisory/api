@@ -6,11 +6,11 @@ defmodule ElixirSecurityAdvisory.Application do
   alias ElixirSecurityAdvisory.Vulnerabilities.Database
 
   def start(_type, _args) do
-    try do
-      Database.create!(memory: [Node.self() | Node.list()])
-    catch
-      Amnesia.TableExistsError -> :ok
-    end
+    # try do
+    #   Database.create!(memory: [Node.self() | Node.list()])
+    # catch
+    #   Amnesia.TableExistsError -> :ok
+    # end
 
     Database.wait(15_000)
 

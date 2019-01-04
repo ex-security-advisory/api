@@ -107,9 +107,11 @@ defmodule ElixirSecurityAdvisoryApiV1.PackageController do
   end
 
   def index(conn, %{data: %{"packages" => packages}}) do
-    conn
-    |> put_resp_content_type("application/json")
-    |> send_resp(:ok, Jason.encode!(packages))
+    render(conn, "normalize_index.json", Map.put(packages, :links, %{foo: :bar}))
+
+    # conn
+    # |> put_resp_content_type("application/json")
+    # |> send_resp(:ok, Jason.encode!(packages))
   end
 
   @graphql """

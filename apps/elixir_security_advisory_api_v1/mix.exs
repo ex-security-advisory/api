@@ -57,7 +57,8 @@ defmodule ElixirSecurityAdvisoryApiV1.MixProject do
       {:phoenix_swagger, "~> 0.8"},
       {:mox, "~> 0.4", only: :test},
       {:excoveralls, "~> 0.10", only: :test},
-      {:accept, "~> 0.3"}
+      {:accept, "~> 0.3"},
+      {:jsonapi, "~> 0.8"}
     ]
   end
 end
