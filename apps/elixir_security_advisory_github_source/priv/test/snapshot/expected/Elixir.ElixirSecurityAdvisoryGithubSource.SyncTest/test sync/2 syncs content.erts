@@ -11,14 +11,110 @@
    "85f4bba7e2c37f9960e31d43db534b32f073af3d",
    "8c56dca4671cb6e0817f26ea34a87daba10dfb31",
    "92ee261b90784939055b3584e39b2df5690bc794",
+   "94cd0f41943c436447179e430fc951c4c6c429b7",
    "b76dd0707215a954d4f8647e04b2152c3dacc8bb",
    "c2627c0e2e4ac78ab1fb7d4284b242ecb18b1f3c",
    "c283297fb1196965afbfe506eb13972ffec4b6ad",
    "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
-   "e7fb5d13522a8e8de6a2624645c8cf2a54c2c4e0"]>,
+   "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+   "e7fb5d13522a8e8de6a2624645c8cf2a54c2c4e0",
+   "ebf92838abdb268376e6b4446701879ca4630d78"]>,
   vulnerabilities: %{
-    "packages/coherence/2017-08-02.yml" => %ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability{
-      id: "packages/coherence/2017-08-02.yml",
+    <<4, 105, 205, 231, 193, 14, 67, 253, 131, 246, 17, 174, 240, 12, 200, 217>> => %{
+      id: <<4, 105, 205, 231, 193, 14, 67, 253, 131, 246, 17, 174, 240, 12, 200,
+        217>>,
+      package_id: "xain",
+      revisions: [
+        %{
+          cve: "2018-20302",
+          description: "XSS is possible via the use of the order query parameter. An example request\nwould look like:\n\n```\nhttp://host/ressources?order=%27><script>alert(1);</script>\n```",
+          disclosure_date: ~D[2018-09-03],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/smpallen99/xain/issues/18",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: nil,
+          oldest_revision_id: "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+          patched_versions: [#Version.Requirement<>= 0.6.2>],
+          revision_message: "Add id column",
+          title: "XSS Vulnerability",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2018-20302",
+          description: "XSS is possible via the use of the order query parameter. An example request\nwould look like:\n\n```\nhttp://host/ressources?order=%27><script>alert(1);</script>\n```",
+          disclosure_date: ~D[2018-09-03],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/smpallen99/xain/issues/18",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "ebf92838abdb268376e6b4446701879ca4630d78",
+          oldest_revision_id: "92ee261b90784939055b3584e39b2df5690bc794",
+          patched_versions: [#Version.Requirement<>= 0.6.2>],
+          revision_message: "Merge pull request #12 from maennchen/patch-2\n\nAdd Reserved CVE to Xain",
+          title: "XSS Vulnerability",
+          unaffected_versions: nil
+        },
+        %{
+          cve: nil,
+          description: "XSS is possible via the use of the order query parameter. An example request\nwould look like:\n\n```\nhttp://host/ressources?order=%27><script>alert(1);</script>\n```",
+          disclosure_date: ~D[2018-09-03],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/smpallen99/xain/issues/18",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "656c1694b01615b89c2b5e1a7ec72c47c16f9da7",
+          oldest_revision_id: "6fa38190618e8aa2ff1f0877aef17fc0f66182c8",
+          patched_versions: [#Version.Requirement<>= 0.6.2>],
+          revision_message: "Fix dependency name in xain advisory",
+          title: "XSS Vulnerability",
+          unaffected_versions: nil
+        },
+        %{
+          cve: nil,
+          description: "XSS is possible via the use of the order query parameter. An example request\nwould look like:\n\n```\nhttp://host/ressources?order=%27><script>alert(1);</script>\n```",
+          disclosure_date: ~D[2018-09-03],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/smpallen99/xain/issues/18",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "c283297fb1196965afbfe506eb13972ffec4b6ad",
+          oldest_revision_id: "c283297fb1196965afbfe506eb13972ffec4b6ad",
+          patched_versions: [#Version.Requirement<>= 0.6.2>],
+          revision_message: "Merge pull request #8 from dependabot/add-xain-vulnerability\n\nAdd xain vulnerability",
+          title: "XSS Vulnerability",
+          unaffected_versions: nil
+        }
+      ]
+    },
+    <<42, 174, 110, 58, 36, 163, 77, 95, 134, 255, 185, 100, 234, 247, 198,
+      209>> => %{
+      id: <<42, 174, 110, 58, 36, 163, 77, 95, 134, 255, 185, 100, 234, 247,
+        198, 209>>,
       package_id: "coherence",
       revisions: [
         %{
@@ -36,6 +132,27 @@
             userinfo: nil
           },
           newest_revision_id: nil,
+          oldest_revision_id: "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+          patched_versions: [#Version.Requirement<>= 0.5.2>],
+          revision_message: "Add id column",
+          title: "Permissive parameters and privilege escalation",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2018-20301",
+          description: "The Coherence library has \"Mass Assignment\"-like vulnerabilities. In particular, \"registration\"\nendpoints (like creating, editing, updating), allow users to update any coherence_fields. This\nmeans that, among other issues, users can automatically confirm their accounts by sending the\nconfirmed_at parameter with their registration request. Further, the library design and\ndocumentation encourages insecure functionality by default.\n\nFor example, the \"store\" demo allows registering users to add themselves as admin:\nhttps://github.com/smpallen99/store/blob/master/web/models/coherence/user.ex",
+          disclosure_date: ~D[2017-08-02],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/smpallen99/coherence/issues/270",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "ebf92838abdb268376e6b4446701879ca4630d78",
           oldest_revision_id: "83ea7db3536e7c1cd30ce5f430f41ff38a646103",
           patched_versions: [#Version.Requirement<>= 0.5.2>],
           revision_message: "Merge pull request #11 from maennchen/patch-1\n\nAdd Reserved CVE to Coherence",
@@ -107,77 +224,9 @@
         }
       ]
     },
-    "packages/ecto/2017-08-27.yml" => %ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability{
-      id: "packages/ecto/2017-08-27.yml",
-      package_id: "ecto",
-      revisions: [
-        %{
-          cve: nil,
-          description: "Ecto will not raise on queries with non-explicit nil comparisons (ie if they aren't checked with `is_nil`).",
-          disclosure_date: ~D[2017-08-27],
-          link: %URI{
-            authority: "groups.google.com",
-            fragment: "!topic/elixir-ecto/0m4NPfg_MMU",
-            host: "groups.google.com",
-            path: "/forum/",
-            port: 443,
-            query: nil,
-            scheme: "https",
-            userinfo: nil
-          },
-          newest_revision_id: nil,
-          oldest_revision_id: "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
-          patched_versions: [#Version.Requirement<> 2.2.0>],
-          revision_message: "Rename date_disclosed to disclosure_date, and add specs",
-          title: "Missing `is_nil` requirement",
-          unaffected_versions: [#Version.Requirement<< 2.2.0>]
-        },
-        %{
-          cve: nil,
-          description: "Ecto will not raise on queries with non-explicit nil comparisons (ie if they aren't checked with `is_nil`).",
-          disclosure_date: nil,
-          link: %URI{
-            authority: "groups.google.com",
-            fragment: "!topic/elixir-ecto/0m4NPfg_MMU",
-            host: "groups.google.com",
-            path: "/forum/",
-            port: 443,
-            query: nil,
-            scheme: "https",
-            userinfo: nil
-          },
-          newest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
-          oldest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
-          patched_versions: [#Version.Requirement<> 2.2.0>],
-          revision_message: "Add disclosure_date field",
-          title: "Missing `is_nil` requirement",
-          unaffected_versions: [#Version.Requirement<< 2.2.0>]
-        },
-        %{
-          cve: nil,
-          description: "Ecto will not raise on queries with non-explicit nil comparisons (ie if they aren't checked with `is_nil`).",
-          disclosure_date: nil,
-          link: %URI{
-            authority: "groups.google.com",
-            fragment: "!topic/elixir-ecto/0m4NPfg_MMU",
-            host: "groups.google.com",
-            path: "/forum/",
-            port: 443,
-            query: nil,
-            scheme: "https",
-            userinfo: nil
-          },
-          newest_revision_id: "56633ded4aeac1d3e071c718aa7d1ad1f82f182a",
-          oldest_revision_id: "85f4bba7e2c37f9960e31d43db534b32f073af3d",
-          patched_versions: [#Version.Requirement<> 2.2.0>],
-          revision_message: "Add ecto vulnerability",
-          title: "Missing `is_nil` requirement",
-          unaffected_versions: [#Version.Requirement<< 2.2.0>]
-        }
-      ]
-    },
-    "packages/phoenix/2017-03-14.yml" => %ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability{
-      id: "packages/phoenix/2017-03-14.yml",
+    <<50, 161, 152, 225, 142, 252, 64, 231, 146, 119, 198, 166, 50, 2, 71, 103>> => %{
+      id: <<50, 161, 152, 225, 142, 252, 64, 231, 146, 119, 198, 166, 50, 2, 71,
+        103>>,
       package_id: "phoenix",
       revisions: [
         %{
@@ -195,6 +244,29 @@
             userinfo: nil
           },
           newest_revision_id: nil,
+          oldest_revision_id: "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+          patched_versions: [#Version.Requirement<>= 1.3.0-rc.1>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.5>],
+          revision_message: "Add id column",
+          title: "Arbitrary URL Redirect",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2017-1000163",
+          description: "The Phoenix team designed Phoenix.Controller.redirect/2 to protect against\nredirects allowing user input to redirect to an external URL where your\napplication code otherwise assumes a local path redirect. This is why the\n:to option is used for “local” URL redirects and why you must pass the\n:external option to intentionally allow external URLs to be redirected to.\n\nIt has been disclosed that carefully crafted user input may be treated by some\nbrowsers as an external URL. An attacker can use this vulnerability to aid in\nsocial engineering attacks. The most common use would be to create highly\nbelievable phishing attacks.\n\nFor example, the following user input would pass local URL validation,\nbut be treated by Chrome and Firefox as external URLs:\nhttp://localhost:4000/?redirect=/\\nexample.com\n\nNot all browsers are affected, but latest Chrome and Firefox will issue a get\nrequest for example.com and successfully redirect externally.",
+          disclosure_date: ~D[2017-03-14],
+          link: %URI{
+            authority: "elixirforum.com",
+            fragment: nil,
+            host: "elixirforum.com",
+            path: "/t/security-releases-for-phoenix/4143",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "ebf92838abdb268376e6b4446701879ca4630d78",
           oldest_revision_id: "72145498f03ae4f49473d512624f02b066bfaed7",
           patched_versions: [#Version.Requirement<>= 1.3.0-rc.1>,
            #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
@@ -251,42 +323,63 @@
         }
       ]
     },
-    "packages/plug/2017-02-28.yml" => %ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability{
-      id: "packages/plug/2017-02-28.yml",
-      package_id: "plug",
+    <<70, 170, 214, 153, 80, 163, 72, 216, 167, 172, 242, 72, 171, 150, 179,
+      116>> => %{
+      id: <<70, 170, 214, 153, 80, 163, 72, 216, 167, 172, 242, 72, 171, 150,
+        179, 116>>,
+      package_id: "ecto",
       revisions: [
         %{
-          cve: "2017-1000052",
-          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
-          disclosure_date: ~D[2017-02-28],
+          cve: nil,
+          description: "Ecto will not raise on queries with non-explicit nil comparisons (ie if they aren't checked with `is_nil`).",
+          disclosure_date: ~D[2017-08-27],
           link: %URI{
-            authority: "elixirforum.com",
-            fragment: nil,
-            host: "elixirforum.com",
-            path: "/t/static-and-session-security-fixes-for-plug/3913",
+            authority: "groups.google.com",
+            fragment: "!topic/elixir-ecto/0m4NPfg_MMU",
+            host: "groups.google.com",
+            path: "/forum/",
             port: 443,
             query: nil,
             scheme: "https",
             userinfo: nil
           },
           newest_revision_id: nil,
-          oldest_revision_id: "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
-          patched_versions: [#Version.Requirement<>= 1.3.2>,
-           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
-           #Version.Requirement<~> 1.0.4>],
-          revision_message: "Rename date_disclosed to disclosure_date, and add specs",
-          title: "Null Byte Injection in Plug.Static",
-          unaffected_versions: nil
+          oldest_revision_id: "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+          patched_versions: [#Version.Requirement<> 2.2.0>],
+          revision_message: "Add id column",
+          title: "Missing `is_nil` requirement",
+          unaffected_versions: [#Version.Requirement<< 2.2.0>]
         },
         %{
-          cve: "2017-1000052",
-          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          cve: nil,
+          description: "Ecto will not raise on queries with non-explicit nil comparisons (ie if they aren't checked with `is_nil`).",
+          disclosure_date: ~D[2017-08-27],
+          link: %URI{
+            authority: "groups.google.com",
+            fragment: "!topic/elixir-ecto/0m4NPfg_MMU",
+            host: "groups.google.com",
+            path: "/forum/",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "ebf92838abdb268376e6b4446701879ca4630d78",
+          oldest_revision_id: "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
+          patched_versions: [#Version.Requirement<> 2.2.0>],
+          revision_message: "Rename date_disclosed to disclosure_date, and add specs",
+          title: "Missing `is_nil` requirement",
+          unaffected_versions: [#Version.Requirement<< 2.2.0>]
+        },
+        %{
+          cve: nil,
+          description: "Ecto will not raise on queries with non-explicit nil comparisons (ie if they aren't checked with `is_nil`).",
           disclosure_date: nil,
           link: %URI{
-            authority: "elixirforum.com",
-            fragment: nil,
-            host: "elixirforum.com",
-            path: "/t/static-and-session-security-fixes-for-plug/3913",
+            authority: "groups.google.com",
+            fragment: "!topic/elixir-ecto/0m4NPfg_MMU",
+            host: "groups.google.com",
+            path: "/forum/",
             port: 443,
             query: nil,
             scheme: "https",
@@ -294,63 +387,37 @@
           },
           newest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
           oldest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
-          patched_versions: [#Version.Requirement<>= 1.3.2>,
-           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
-           #Version.Requirement<~> 1.0.4>],
+          patched_versions: [#Version.Requirement<> 2.2.0>],
           revision_message: "Add disclosure_date field",
-          title: "Null Byte Injection in Plug.Static",
-          unaffected_versions: nil
+          title: "Missing `is_nil` requirement",
+          unaffected_versions: [#Version.Requirement<< 2.2.0>]
         },
         %{
-          cve: "2017-1000052",
-          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          cve: nil,
+          description: "Ecto will not raise on queries with non-explicit nil comparisons (ie if they aren't checked with `is_nil`).",
           disclosure_date: nil,
           link: %URI{
-            authority: "elixirforum.com",
-            fragment: nil,
-            host: "elixirforum.com",
-            path: "/t/static-and-session-security-fixes-for-plug/3913",
+            authority: "groups.google.com",
+            fragment: "!topic/elixir-ecto/0m4NPfg_MMU",
+            host: "groups.google.com",
+            path: "/forum/",
             port: 443,
             query: nil,
             scheme: "https",
             userinfo: nil
           },
           newest_revision_id: "56633ded4aeac1d3e071c718aa7d1ad1f82f182a",
-          oldest_revision_id: "49429ab861e8e03918d829737b993da143e5b881",
-          patched_versions: [#Version.Requirement<>= 1.3.2>,
-           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
-           #Version.Requirement<~> 1.0.4>],
-          revision_message: "Add phoenix vulnerability",
-          title: "Null Byte Injection in Plug.Static",
-          unaffected_versions: nil
-        },
-        %{
-          cve: "2017-1000052",
-          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
-          disclosure_date: nil,
-          link: %URI{
-            authority: "elixirforum.com",
-            fragment: nil,
-            host: "elixirforum.com",
-            path: "/t/static-and-session-security-fixes-for-plug/3913",
-            port: 443,
-            query: nil,
-            scheme: "https",
-            userinfo: nil
-          },
-          newest_revision_id: "8c56dca4671cb6e0817f26ea34a87daba10dfb31",
-          oldest_revision_id: "13fdca81306283eb595a8eb25d866ea68b5bc2e3",
-          patched_versions: [#Version.Requirement<~> 1.3.2>,
-           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
-           #Version.Requirement<~> 1.0.4>],
-          revision_message: "Add plug CVE 2017-1000052",
-          title: "Null Byte Injection in Plug.Static",
-          unaffected_versions: nil
+          oldest_revision_id: "85f4bba7e2c37f9960e31d43db534b32f073af3d",
+          patched_versions: [#Version.Requirement<> 2.2.0>],
+          revision_message: "Add ecto vulnerability",
+          title: "Missing `is_nil` requirement",
+          unaffected_versions: [#Version.Requirement<< 2.2.0>]
         }
       ]
     },
-    "packages/plug/2017-02-28_2.yml" => %ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability{
-      id: "packages/plug/2017-02-28_2.yml",
+    <<109, 53, 195, 238, 202, 116, 71, 220, 131, 228, 189, 22, 4, 227, 19, 9>> => %{
+      id: <<109, 53, 195, 238, 202, 116, 71, 220, 131, 228, 189, 22, 4, 227, 19,
+        9>>,
       package_id: "plug",
       revisions: [
         %{
@@ -368,6 +435,29 @@
             userinfo: nil
           },
           newest_revision_id: nil,
+          oldest_revision_id: "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+          patched_versions: [#Version.Requirement<>= 1.3.2>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.4>],
+          revision_message: "Add id column",
+          title: "Arbitrary Code Execution in Cookie Serialization",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2017-1000053",
+          description: "The default serialization used by Plug session may result in code execution\nin certain situations. Keep in mind, however, the session cookie is signed\nand this attack can only be exploited if the attacker has access to your\nsecret key as well as your signing/encryption salts. We recommend users to\nchange their secret key base and salts if they suspect they have been leaked,\nregardless of this vulnerability.",
+          disclosure_date: ~D[2017-02-28],
+          link: %URI{
+            authority: "elixirforum.com",
+            fragment: nil,
+            host: "elixirforum.com",
+            path: "/t/static-and-session-security-fixes-for-plug/3913",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "ebf92838abdb268376e6b4446701879ca4630d78",
           oldest_revision_id: "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
           patched_versions: [#Version.Requirement<>= 1.3.2>,
            #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
@@ -447,14 +537,43 @@
         }
       ]
     },
-    "packages/plug/2017-04-17.yml" => %ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability{
-      id: "packages/plug/2017-04-17.yml",
+    "packages/phoenix/2017-03-14.yaml" => %{
+      id: "packages/phoenix/2017-03-14.yaml",
+      package_id: "phoenix",
+      revisions: [
+        %{
+          cve: nil,
+          description: "The Phoenix team designed Phoenix.Controller.redirect/2 to protect against\nredirects allowing user input to redirect to an external URL where your\napplication code otherwise assumes a local path redirect. This is why the\n:to option is used for “local” URL redirects and why you must pass the\n:external option to intentionally allow external URLs to be redirected to.\n\nIt has been disclosed that carefully crafted user input may be treated by some\nbrowsers as an external URL. An attacker can use this vulnerability to aid in\nsocial engineering attacks. The most common use would be to create highly\nbelievable phishing attacks.\n\nFor example, the following user input would pass local URL validation,\nbut be treated by Chrome and Firefox as external URLs:\nhttp://localhost:4000/?redirect=/\\nexample.com\n\nNot all browsers are affected, but latest Chrome and Firefox will issue a get\nrequest for example.com and successfully redirect externally.",
+          disclosure_date: nil,
+          link: %URI{
+            authority: "elixirforum.com",
+            fragment: nil,
+            host: "elixirforum.com",
+            path: "/t/security-releases-for-phoenix/4143",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: nil,
+          oldest_revision_id: "56633ded4aeac1d3e071c718aa7d1ad1f82f182a",
+          patched_versions: [#Version.Requirement<>= 1.3.0-rc.1>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.5>],
+          revision_message: "Consistent use of .yml",
+          title: "Arbitrary URL Redirect",
+          unaffected_versions: nil
+        }
+      ]
+    },
+    "packages/plug/2017-02-28_3.yml" => %{
+      id: "packages/plug/2017-02-28_3.yml",
       package_id: "plug",
       revisions: [
         %{
-          cve: "2018-1000883",
+          cve: nil,
           description: "Cookie headers were not validated",
-          disclosure_date: ~D[2017-04-17],
+          disclosure_date: nil,
           link: %URI{
             authority: "github.com",
             fragment: nil,
@@ -466,34 +585,11 @@
             userinfo: nil
           },
           newest_revision_id: nil,
-          oldest_revision_id: "c2627c0e2e4ac78ab1fb7d4284b242ecb18b1f3c",
+          oldest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
           patched_versions: [#Version.Requirement<>= 1.3.5>,
            #Version.Requirement<~> 1.2.5>, #Version.Requirement<~> 1.1.9>,
            #Version.Requirement<~> 1.0.6>],
-          revision_message: "Merge pull request #14 from maennchen/patch-1\n\nAdd CVE ID to Plug Header Injection",
-          title: "Header Injection",
-          unaffected_versions: nil
-        },
-        %{
-          cve: nil,
-          description: "Cookie headers were not validated",
-          disclosure_date: ~D[2017-04-17],
-          link: %URI{
-            authority: "github.com",
-            fragment: nil,
-            host: "github.com",
-            path: "/elixir-plug/plug/commit/8857f8ab4acf9b9c22e80480dae2636692f5f573",
-            port: 443,
-            query: nil,
-            scheme: "https",
-            userinfo: nil
-          },
-          newest_revision_id: "83ea7db3536e7c1cd30ce5f430f41ff38a646103",
-          oldest_revision_id: "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
-          patched_versions: [#Version.Requirement<>= 1.3.5>,
-           #Version.Requirement<~> 1.2.5>, #Version.Requirement<~> 1.1.9>,
-           #Version.Requirement<~> 1.0.6>],
-          revision_message: "Rename date_disclosed to disclosure_date, and add specs",
+          revision_message: "Add disclosure_date field",
           title: "Header Injection",
           unaffected_versions: nil
         },
@@ -511,7 +607,7 @@
             scheme: "https",
             userinfo: nil
           },
-          newest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
+          newest_revision_id: "56633ded4aeac1d3e071c718aa7d1ad1f82f182a",
           oldest_revision_id: "49429ab861e8e03918d829737b993da143e5b881",
           patched_versions: [#Version.Requirement<>= 1.3.5>,
            #Version.Requirement<~> 1.2.5>, #Version.Requirement<~> 1.1.9>,
@@ -545,71 +641,230 @@
         }
       ]
     },
-    "packages/xain/2018-09-03.yml" => %ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability{
-      id: "packages/xain/2018-09-03.yml",
-      package_id: "xain",
+    "packages/plug/CVE-2017-1000052.yml" => %{
+      id: "packages/plug/CVE-2017-1000052.yml",
+      package_id: "plug",
       revisions: [
         %{
-          cve: "2018-20302",
-          description: "XSS is possible via the use of the order query parameter. An example request\nwould look like:\n\n```\nhttp://host/ressources?order=%27><script>alert(1);</script>\n```",
-          disclosure_date: ~D[2018-09-03],
+          cve: "2017-1000052",
+          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          disclosure_date: nil,
           link: %URI{
-            authority: "github.com",
+            authority: "elixirforum.com",
             fragment: nil,
-            host: "github.com",
-            path: "/smpallen99/xain/issues/18",
+            host: "elixirforum.com",
+            path: "/t/static-and-session-security-fixes-for-plug/3913",
             port: 443,
             query: nil,
             scheme: "https",
             userinfo: nil
           },
           newest_revision_id: nil,
-          oldest_revision_id: "92ee261b90784939055b3584e39b2df5690bc794",
-          patched_versions: [#Version.Requirement<>= 0.6.2>],
-          revision_message: "Merge pull request #12 from maennchen/patch-2\n\nAdd Reserved CVE to Xain",
-          title: "XSS Vulnerability",
+          oldest_revision_id: "e7fb5d13522a8e8de6a2624645c8cf2a54c2c4e0",
+          patched_versions: [#Version.Requirement<~> 1.3.2>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.4>],
+          revision_message: "Use date, not CVE, as filename",
+          title: "Null Byte Injection in Plug.Static",
           unaffected_versions: nil
         },
         %{
-          cve: nil,
-          description: "XSS is possible via the use of the order query parameter. An example request\nwould look like:\n\n```\nhttp://host/ressources?order=%27><script>alert(1);</script>\n```",
-          disclosure_date: ~D[2018-09-03],
+          cve: "2017-1000052",
+          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          disclosure_date: nil,
           link: %URI{
-            authority: "github.com",
+            authority: "elixirforum.com",
             fragment: nil,
-            host: "github.com",
-            path: "/smpallen99/xain/issues/18",
+            host: "elixirforum.com",
+            path: "/t/static-and-session-security-fixes-for-plug/3913",
             port: 443,
             query: nil,
             scheme: "https",
             userinfo: nil
           },
-          newest_revision_id: "656c1694b01615b89c2b5e1a7ec72c47c16f9da7",
-          oldest_revision_id: "6fa38190618e8aa2ff1f0877aef17fc0f66182c8",
-          patched_versions: [#Version.Requirement<>= 0.6.2>],
-          revision_message: "Fix dependency name in xain advisory",
-          title: "XSS Vulnerability",
+          newest_revision_id: "94cd0f41943c436447179e430fc951c4c6c429b7",
+          oldest_revision_id: "13fdca81306283eb595a8eb25d866ea68b5bc2e3",
+          patched_versions: [#Version.Requirement<~> 1.3.2>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.4>],
+          revision_message: "Add plug CVE 2017-1000052",
+          title: "Null Byte Injection in Plug.Static",
           unaffected_versions: nil
-        },
+        }
+      ]
+    },
+    <<130, 104, 225, 32, 96, 180, 78, 251, 185, 202, 78, 63, 172, 160, 204,
+      166>> => %{
+      id: <<130, 104, 225, 32, 96, 180, 78, 251, 185, 202, 78, 63, 172, 160,
+        204, 166>>,
+      package_id: "plug",
+      revisions: [
         %{
-          cve: nil,
-          description: "XSS is possible via the use of the order query parameter. An example request\nwould look like:\n\n```\nhttp://host/ressources?order=%27><script>alert(1);</script>\n```",
-          disclosure_date: ~D[2018-09-03],
+          cve: "2017-1000052",
+          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          disclosure_date: ~D[2017-02-28],
           link: %URI{
-            authority: "github.com",
+            authority: "elixirforum.com",
             fragment: nil,
-            host: "github.com",
-            path: "/smpallen99/xain/issues/18",
+            host: "elixirforum.com",
+            path: "/t/static-and-session-security-fixes-for-plug/3913",
             port: 443,
             query: nil,
             scheme: "https",
             userinfo: nil
           },
-          newest_revision_id: "c283297fb1196965afbfe506eb13972ffec4b6ad",
-          oldest_revision_id: "c283297fb1196965afbfe506eb13972ffec4b6ad",
-          patched_versions: [#Version.Requirement<>= 0.6.2>],
-          revision_message: "Merge pull request #8 from dependabot/add-xain-vulnerability\n\nAdd xain vulnerability",
-          title: "XSS Vulnerability",
+          newest_revision_id: nil,
+          oldest_revision_id: "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+          patched_versions: [#Version.Requirement<>= 1.3.2>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.4>],
+          revision_message: "Add id column",
+          title: "Null Byte Injection in Plug.Static",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2017-1000052",
+          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          disclosure_date: ~D[2017-02-28],
+          link: %URI{
+            authority: "elixirforum.com",
+            fragment: nil,
+            host: "elixirforum.com",
+            path: "/t/static-and-session-security-fixes-for-plug/3913",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "ebf92838abdb268376e6b4446701879ca4630d78",
+          oldest_revision_id: "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
+          patched_versions: [#Version.Requirement<>= 1.3.2>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.4>],
+          revision_message: "Rename date_disclosed to disclosure_date, and add specs",
+          title: "Null Byte Injection in Plug.Static",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2017-1000052",
+          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          disclosure_date: nil,
+          link: %URI{
+            authority: "elixirforum.com",
+            fragment: nil,
+            host: "elixirforum.com",
+            path: "/t/static-and-session-security-fixes-for-plug/3913",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
+          oldest_revision_id: "3bea42c09575fca3c3583f1445fc037fee863547",
+          patched_versions: [#Version.Requirement<>= 1.3.2>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.4>],
+          revision_message: "Add disclosure_date field",
+          title: "Null Byte Injection in Plug.Static",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2017-1000052",
+          description: "Plug.Static is used for serving static assets, and is vulnerable to null\nbyte injection. If file upload functionality is provided, this can allow\nusers to bypass filetype restrictions.\n\nWe recommend all applications that provide file upload functionality and\nserve those uploaded files locally with Plug.Static to upgrade immediately\nor include the fix below. If uploaded files are rather stored and served\nfrom S3 or any other cloud storage, you are not affected.",
+          disclosure_date: nil,
+          link: %URI{
+            authority: "elixirforum.com",
+            fragment: nil,
+            host: "elixirforum.com",
+            path: "/t/static-and-session-security-fixes-for-plug/3913",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "56633ded4aeac1d3e071c718aa7d1ad1f82f182a",
+          oldest_revision_id: "49429ab861e8e03918d829737b993da143e5b881",
+          patched_versions: [#Version.Requirement<>= 1.3.2>,
+           #Version.Requirement<~> 1.2.3>, #Version.Requirement<~> 1.1.7>,
+           #Version.Requirement<~> 1.0.4>],
+          revision_message: "Add phoenix vulnerability",
+          title: "Null Byte Injection in Plug.Static",
+          unaffected_versions: nil
+        }
+      ]
+    },
+    <<220, 150, 171, 164, 68, 98, 77, 59, 183, 63, 40, 185, 52, 145, 51, 216>> => %{
+      id: <<220, 150, 171, 164, 68, 98, 77, 59, 183, 63, 40, 185, 52, 145, 51,
+        216>>,
+      package_id: "plug",
+      revisions: [
+        %{
+          cve: "2018-1000883",
+          description: "Cookie headers were not validated",
+          disclosure_date: ~D[2017-04-17],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/elixir-plug/plug/commit/8857f8ab4acf9b9c22e80480dae2636692f5f573",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: nil,
+          oldest_revision_id: "d7631e77269f1cfd95b64c70035f3d8c2b63d6b8",
+          patched_versions: [#Version.Requirement<>= 1.3.5>,
+           #Version.Requirement<~> 1.2.5>, #Version.Requirement<~> 1.1.9>,
+           #Version.Requirement<~> 1.0.6>],
+          revision_message: "Add id column",
+          title: "Header Injection",
+          unaffected_versions: nil
+        },
+        %{
+          cve: "2018-1000883",
+          description: "Cookie headers were not validated",
+          disclosure_date: ~D[2017-04-17],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/elixir-plug/plug/commit/8857f8ab4acf9b9c22e80480dae2636692f5f573",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "ebf92838abdb268376e6b4446701879ca4630d78",
+          oldest_revision_id: "c2627c0e2e4ac78ab1fb7d4284b242ecb18b1f3c",
+          patched_versions: [#Version.Requirement<>= 1.3.5>,
+           #Version.Requirement<~> 1.2.5>, #Version.Requirement<~> 1.1.9>,
+           #Version.Requirement<~> 1.0.6>],
+          revision_message: "Merge pull request #14 from maennchen/patch-1\n\nAdd CVE ID to Plug Header Injection",
+          title: "Header Injection",
+          unaffected_versions: nil
+        },
+        %{
+          cve: nil,
+          description: "Cookie headers were not validated",
+          disclosure_date: ~D[2017-04-17],
+          link: %URI{
+            authority: "github.com",
+            fragment: nil,
+            host: "github.com",
+            path: "/elixir-plug/plug/commit/8857f8ab4acf9b9c22e80480dae2636692f5f573",
+            port: 443,
+            query: nil,
+            scheme: "https",
+            userinfo: nil
+          },
+          newest_revision_id: "83ea7db3536e7c1cd30ce5f430f41ff38a646103",
+          oldest_revision_id: "c9776a5e0c2a29f343c0b6e7b2eda5b102d684c3",
+          patched_versions: [#Version.Requirement<>= 1.3.5>,
+           #Version.Requirement<~> 1.2.5>, #Version.Requirement<~> 1.1.9>,
+           #Version.Requirement<~> 1.0.6>],
+          revision_message: "Rename date_disclosed to disclosure_date, and add specs",
+          title: "Header Injection",
           unaffected_versions: nil
         }
       ]

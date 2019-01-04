@@ -12,20 +12,20 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"ref\":\"refs/heads/master\",\"node_id\":\"MDM6UmVmMTI3OTQzMjUzOm1hc3Rlcg==\",\"url\":\"https://api.github.com/repos/dependabot/elixir-security-advisories/git/refs/heads/master\",\"object\":{\"sha\":\"c2627c0e2e4ac78ab1fb7d4284b242ecb18b1f3c\",\"type\":\"commit\",\"url\":\"https://api.github.com/repos/dependabot/elixir-security-advisories/git/commits/c2627c0e2e4ac78ab1fb7d4284b242ecb18b1f3c\"}}",
+      "body": "{\"ref\":\"refs/heads/master\",\"node_id\":\"MDM6UmVmMTI3OTQzMjUzOm1hc3Rlcg==\",\"url\":\"https://api.github.com/repos/dependabot/elixir-security-advisories/git/refs/heads/master\",\"object\":{\"sha\":\"d7631e77269f1cfd95b64c70035f3d8c2b63d6b8\",\"type\":\"commit\",\"url\":\"https://api.github.com/repos/dependabot/elixir-security-advisories/git/commits/d7631e77269f1cfd95b64c70035f3d8c2b63d6b8\"}}",
       "headers": {
         "Server": "GitHub.com",
-        "Date": "Thu, 27 Dec 2018 23:16:11 GMT",
+        "Date": "Fri, 04 Jan 2019 15:11:07 GMT",
         "Content-Type": "application/json; charset=utf-8",
         "Content-Length": "373",
         "Status": "200 OK",
         "X-RateLimit-Limit": "5000",
-        "X-RateLimit-Remaining": "4717",
-        "X-RateLimit-Reset": "1545954584",
+        "X-RateLimit-Remaining": "2839",
+        "X-RateLimit-Reset": "1546615856",
         "Cache-Control": "private, max-age=60, s-maxage=60",
         "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
-        "ETag": "\"cd9aec1cbb976eef6e806413b545acd5\"",
-        "Last-Modified": "Fri, 21 Dec 2018 07:54:57 GMT",
+        "ETag": "\"90dcc92ef81e46dc2805a214c675c72c\"",
+        "Last-Modified": "Fri, 04 Jan 2019 11:13:05 GMT",
         "X-Poll-Interval": "300",
         "X-OAuth-Scopes": "",
         "X-Accepted-OAuth-Scopes": "repo",
@@ -38,7 +38,7 @@
         "X-XSS-Protection": "1; mode=block",
         "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
         "Content-Security-Policy": "default-src 'none'",
-        "X-GitHub-Request-Id": "C805:3027:9CF4A63:138DD767:5C255D3B"
+        "X-GitHub-Request-Id": "CF60:1F58:7A5D148:1048FDB2:5C2F778B"
       },
       "status_code": 200,
       "type": "ok"

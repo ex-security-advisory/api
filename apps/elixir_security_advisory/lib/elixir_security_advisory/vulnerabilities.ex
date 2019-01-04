@@ -133,13 +133,31 @@ defmodule ElixirSecurityAdvisory.Vulnerabilities do
   @impl ElixirSecurityAdvisory
   def replace_vulnerability(%{} = vulnerability, old_id) when is_binary(old_id) do
     Amnesia.transaction do
-      create_vulnerability(vulnerability)
+      write_vulnerability(vulnerability)
       Vulnerability.delete(old_id)
 
       :ok
     end
 
     Phoenix.PubSub.broadcast(PubSub, "vulnerability", {:added, vulnerability})
+  end
+
+  def replace_vulnerability(%{} = vulnerability, [_ | _] = old_ids) do
+    Amnesia.transaction do
+      write_vulnerability(vulnerability)
+
+      for old_id <- old_ids do
+        Vulnerability.delete(old_id)
+      end
+
+      :ok
+    end
+
+    Phoenix.PubSub.broadcast(PubSub, "vulnerability", {:added, vulnerability})
+  end
+
+  def replace_vulnerability(%{} = vulnerability, []) do
+    create_vulnerability(vulnerability)
   end
 
   @impl ElixirSecurityAdvisory

@@ -14,7 +14,7 @@ defmodule ElixirSecurityAdvisoryApi.Endpoint do
     at: "/",
     from: :elixir_security_advisory_api,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt v1)
+    only: ~w(css fonts images js favicon.ico robots.txt)
 
   plug Plug.Static,
     at: "/v1",

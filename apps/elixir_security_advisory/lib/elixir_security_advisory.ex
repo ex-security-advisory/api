@@ -37,7 +37,10 @@ defmodule ElixirSecurityAdvisory do
   @callback get_vulnerability(id :: String.t()) :: vulnerability() | nil
   @callback create_vulnerability(vulnerability :: vulnerability()) :: :ok
   @callback update_vulnerability(vulnerability :: vulnerability()) :: :ok
-  @callback replace_vulnerability(vulnerability :: vulnerability(), old_id :: String.t()) :: :ok
+  @callback replace_vulnerability(
+              vulnerability :: vulnerability(),
+              old_id :: String.t() | [String.t()]
+            ) :: :ok
 
   @callback subscribe_package(opts :: Keyword.t()) :: :ok | {:error, term}
   @callback subscribe_package :: :ok | {:error, term}

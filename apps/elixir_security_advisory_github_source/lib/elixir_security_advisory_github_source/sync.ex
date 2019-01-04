@@ -5,7 +5,6 @@ defmodule ElixirSecurityAdvisoryGithubSource.Sync do
 
   @vulnerabilities Application.fetch_env!(:elixir_security_advisory, ElixirSecurityAdvisory)
 
-  alias ElixirSecurityAdvisory.Vulnerabilities.Database.Vulnerability
   alias Github.Git.Refs
   alias Github.Repos.{Commits, Contents}
 
@@ -122,89 +121,23 @@ defmodule ElixirSecurityAdvisoryGithubSource.Sync do
   end
 
   defp import_changed_file(
-         {reference, parent_reference,
-          %{"previous_filename" => previous_path, "filename" => path, "status" => "modified"},
-          yml, revision_message}
-       ) do
-    Logger.warn(fn ->
-      "The filename and therefore id of the vulnerability #{previous_path} changed to #{path}!"
-    end)
+         {reference, parent_reference, %{"filename" => path, "status" => status} = commit,
+          %{id: id} = yml, revision_message}
+       )
+       when status in ["modified", "renamed"] do
+    [main_id | other_ids] =
+      possible_ids = Enum.reject([id, commit["previous_filename"], path], &is_nil/1)
 
-    previous_path
-    |> @vulnerabilities.get_vulnerability()
-    |> case do
-      nil ->
-        Logger.warn(fn ->
-          "The vulnerability #{previous_path} was not found, creating new one!"
-        end)
-
-        new_vulnerability(yml, path)
-
-      %Vulnerability{} = vulnerability ->
-        vulnerability
-    end
+    possible_ids
+    |> get_vulnerability(yml, path)
     |> update_vulnerability(yml)
-    |> Map.put(:id, path)
+    |> Map.put(:id, main_id)
     |> new_vulnerability_revision(yml, reference, parent_reference, revision_message)
-    |> @vulnerabilities.replace_vulnerability(previous_path)
+    |> @vulnerabilities.replace_vulnerability(other_ids)
 
     Logger.info(fn ->
       "Imported #{path} (#{reference})"
     end)
-  end
-
-  defp import_changed_file(
-         {reference, parent_reference, %{"filename" => path, "status" => "modified"}, yml,
-          revision_message}
-       ) do
-    path
-    |> @vulnerabilities.get_vulnerability()
-    |> case do
-      nil ->
-        Logger.warn(fn ->
-          "The vulnerability #{path} was not found, creating new one!"
-        end)
-
-        new_vulnerability(yml, path)
-
-      %Vulnerability{} = vulnerability ->
-        vulnerability
-    end
-    |> update_vulnerability(yml)
-    |> new_vulnerability_revision(yml, reference, parent_reference, revision_message)
-    |> @vulnerabilities.update_vulnerability()
-
-    Logger.info(fn ->
-      "Imported #{path} (#{reference})"
-    end)
-  end
-
-  defp import_changed_file(
-         {reference, _parent_reference,
-          %{"previous_filename" => previous_path, "filename" => path, "status" => "renamed"},
-          _yml, _revision_message}
-       ) do
-    Logger.warn(fn ->
-      "The filename and therefore id of the vulnerability #{previous_path} changed to #{path}!"
-    end)
-
-    previous_path
-    |> @vulnerabilities.get_vulnerability()
-    |> case do
-      nil ->
-        Logger.warn(fn ->
-          "The vulnerability #{previous_path} was not found, creating new one!"
-        end)
-
-      %Vulnerability{} = vulnerability ->
-        vulnerability
-        |> Map.put(:id, path)
-        |> @vulnerabilities.replace_vulnerability(previous_path)
-
-        Logger.info(fn ->
-          "Imported #{path} (#{reference})"
-        end)
-    end
   end
 
   defp import_changed_file(
@@ -231,10 +164,11 @@ defmodule ElixirSecurityAdvisoryGithubSource.Sync do
       |> Enum.into(%{})
 
     %{
+      id: decode_id(data, path),
       package:
         if is_nil(data["package"]) do
           Logger.warn(fn ->
-            "The field package of #{path} shouldn't be empty! Skipping entry!"
+            "The field package of #{path} shouldn't be empty!"
           end)
 
           nil
@@ -293,22 +227,77 @@ defmodule ElixirSecurityAdvisoryGithubSource.Sync do
     }
   end
 
-  defp new_vulnerability(%{package: package}, path) do
-    %Vulnerability{
+  defp decode_id(data, path) do
+    if is_nil(data["id"]) do
+      Logger.warn(fn ->
+        "The field id of #{path} shouldn't be empty!"
+      end)
+
+      nil
+    else
+      UUID.string_to_binary!(String.trim(data["id"]))
+    end
+  rescue
+    ArgumentError ->
+      Logger.warn(fn ->
+        "The field id of #{path} is invalid!"
+      end)
+
+      nil
+  end
+
+  defp get_vulnerability(ids, yml, path) do
+    ids
+    |> Enum.reduce_while(nil, fn id, nil ->
+      id
+      |> @vulnerabilities.get_vulnerability
+      |> case do
+        nil -> {:cont, nil}
+        %{} = vulnerability -> {:halt, vulnerability}
+      end
+    end)
+    |> case do
+      nil ->
+        Logger.warn(fn ->
+          ids =
+            ids
+            |> Enum.map(&inspect/1)
+            |> Enum.join(", ")
+
+          "The vulnerability #{ids} was not found, creating new one!"
+        end)
+
+        new_vulnerability(yml, path)
+
+      %{} = vulnerability ->
+        vulnerability
+    end
+  end
+
+  defp new_vulnerability(%{package: package, id: nil}, path) do
+    %{
       id: path,
       package_id: package,
       revisions: []
     }
   end
 
+  defp new_vulnerability(%{package: package, id: id}, _path) do
+    %{
+      id: id,
+      package_id: package,
+      revisions: []
+    }
+  end
+
   defp update_vulnerability(
-         %Vulnerability{package_id: package} = vulnerability,
+         %{package_id: package} = vulnerability,
          %{package: package}
        ),
        do: vulnerability
 
   defp update_vulnerability(
-         %Vulnerability{package_id: package_old} = vulnerability,
+         %{package_id: package_old} = vulnerability,
          %{package: package_new}
        ) do
     Logger.warn(fn ->
@@ -319,7 +308,7 @@ defmodule ElixirSecurityAdvisoryGithubSource.Sync do
   end
 
   defp new_vulnerability_revision(
-         %Vulnerability{revisions: []} = vulnerability,
+         %{revisions: []} = vulnerability,
          %{
            title: title,
            description: description,
@@ -353,7 +342,7 @@ defmodule ElixirSecurityAdvisoryGithubSource.Sync do
   end
 
   defp new_vulnerability_revision(
-         %Vulnerability{revisions: [head | tail]} = vulnerability,
+         %{revisions: [head | tail]} = vulnerability,
          %{
            title: title,
            description: description,

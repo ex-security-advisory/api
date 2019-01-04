@@ -93,26 +93,31 @@ defmodule ElixirSecurityAdvisoryGithubSource.SyncTest do
           end)
         end)
 
-        stub(ElixirSecurityAdvisoryMock, :replace_vulnerability, fn %{revisions: revisions} =
-                                                                      vulnerability,
-                                                                    old_id ->
-          revision_ids =
-            revisions
-            |> Enum.map(&[&1.newest_revision_id, &1.oldest_revision_id])
-            |> List.flatten()
-            |> Enum.reject(&is_nil/1)
+        stub(ElixirSecurityAdvisoryMock, :replace_vulnerability, fn
+          %{revisions: revisions} = vulnerability, old_id ->
+            revision_ids =
+              revisions
+              |> Enum.map(&[&1.newest_revision_id, &1.oldest_revision_id])
+              |> List.flatten()
+              |> Enum.reject(&is_nil/1)
 
-          Agent.update(agent, fn %{vulnerabilities: vulnerabilities, revisions: old_revisions} =
-                                   state ->
-            %{
-              state
-              | vulnerabilities:
-                  vulnerabilities
-                  |> Map.put(vulnerability.id, vulnerability)
-                  |> Map.drop([old_id]),
-                revisions: MapSet.union(old_revisions, MapSet.new(revision_ids))
-            }
-          end)
+            Agent.update(agent, fn %{vulnerabilities: vulnerabilities, revisions: old_revisions} =
+                                     state ->
+              drop =
+                case old_id do
+                  old_ids when is_list(old_ids) -> old_ids
+                  old_id when is_binary(old_id) -> [old_id]
+                end
+
+              %{
+                state
+                | vulnerabilities:
+                    vulnerabilities
+                    |> Map.put(vulnerability.id, vulnerability)
+                    |> Map.drop(drop),
+                  revisions: MapSet.union(old_revisions, MapSet.new(revision_ids))
+              }
+            end)
         end)
 
         stub(ElixirSecurityAdvisoryMock, :get_vulnerability, fn id ->
@@ -143,7 +148,7 @@ defmodule ElixirSecurityAdvisoryGithubSource.SyncTest do
         "priv/test/snapshot/output/#{name}.erts"
       )
 
-    expected =
+    expected_path =
       Application.app_dir(
         :elixir_security_advisory_github_source,
         "priv/test/snapshot/expected/#{name}.erts"
@@ -153,6 +158,13 @@ defmodule ElixirSecurityAdvisoryGithubSource.SyncTest do
 
     File.write!(output, inspect(contents, pretty: true))
 
-    assert File.read!(expected) == inspect(contents, pretty: true)
+    expected =
+      expected_path
+      |> File.read!()
+      |> String.trim(" ")
+      |> String.trim("\n")
+      |> String.trim("\r")
+
+    assert expected == inspect(contents, pretty: true)
   end
 end
