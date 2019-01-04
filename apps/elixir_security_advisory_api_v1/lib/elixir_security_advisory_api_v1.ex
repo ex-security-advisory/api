@@ -22,12 +22,18 @@ defmodule ElixirSecurityAdvisoryApiV1 do
       use Phoenix.Controller, namespace: ElixirSecurityAdvisoryApiV1
       use ElixirSecurityAdvisoryApi, :controller_base
 
-      use Absinthe.Phoenix.Controller, schema: ElixirSecurityAdvisoryApiV1.Schema
       use PhoenixSwagger
 
       @dialyzer :no_behaviours
 
       alias ElixirSecurityAdvisoryApiV1.Router.Helpers, as: Routes
+
+      defp default_pagination(%{params: params} = conn, default) do
+        case Map.take(conn.params, ["first", "last"]) do
+          map when map == %{} -> %{conn | params: Map.merge(params, default)}
+          other -> conn
+        end
+      end
     end
   end
 
